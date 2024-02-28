@@ -14,7 +14,9 @@ def prompt(movie_title):
 def generate_info_about(movie_title, prompt=prompt, model=model):
     human_prompt = prompt(movie_title)
     response = model.generate_content(human_prompt)
-    return response.text
+    parts = response.candidates[0].content.parts
+    text = "".join(part.text for part in parts)
+    return text
 
 def main():
     st.title("Movie Information Assistant")
