@@ -26,11 +26,10 @@ def main():
         if movie_title:
             # Generate information
             info = generate_info_about(movie_title)
-            # Display the information
-            st.markdown(info)
+            # Display the information in a box
+            st.info(info)
         else:
             st.error("Please enter a movie title.")
 
 if __name__ == "__main__":
     main()
-
